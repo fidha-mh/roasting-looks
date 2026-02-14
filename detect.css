@@ -1,0 +1,203 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background: linear-gradient(-45deg,#000000,#1a0000,#120012,#000000);
+    background-size:400% 400%;
+    animation: bgMove 10s ease infinite;
+    color:white;
+    text-align:center;
+    overflow-x:hidden;
+}
+
+/* 🔥 Animated Background */
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* ⚡ Glitch Title */
+.glow{
+    font-size:3rem;
+    margin-top:30px;
+    color:#ff004c;
+    position:relative;
+    text-transform:uppercase;
+    animation: glitch 1.5s infinite;
+}
+
+@keyframes glitch{
+    0%{text-shadow:2px 2px red;}
+    20%{text-shadow:-2px -2px cyan;}
+    40%{text-shadow:2px -2px lime;}
+    60%{text-shadow:-2px 2px yellow;}
+    80%{text-shadow:0 0 20px #ff004c;}
+    100%{text-shadow:2px 2px red;}
+}
+
+/* ⚔️ Battle Layout */
+.battle-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:60px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+/* 🩸 Player Card */
+.player{
+    background:rgba(0,0,0,0.7);
+    padding:25px;
+    border-radius:20px;
+    position:relative;
+    width:260px;
+    transition:0.4s;
+    border:2px solid transparent;
+    background-clip:padding-box;
+}
+
+.player::before{
+    content:"";
+    position:absolute;
+    top:-2px; left:-2px; right:-2px; bottom:-2px;
+    border-radius:22px;
+    background:linear-gradient(45deg,#ff004c,#ff8800,#00ffff,#ff004c);
+    z-index:-1;
+    animation: borderMove 4s linear infinite;
+}
+
+@keyframes borderMove{
+    0%{filter:hue-rotate(0deg);}
+    100%{filter:hue-rotate(360deg);}
+}
+
+/* 🔥 3D Hover */
+.player:hover{
+    transform:scale(1.08) rotate(-1deg);
+    box-shadow:0 0 40px red;
+}
+
+/* 🖼 Images */
+img{
+    max-width:220px;
+    border-radius:15px;
+    margin-top:15px;
+    display:none;
+    transition:0.4s;
+}
+
+img:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px #ff004c;
+}
+
+/* ⚡ Buttons */
+.battle-btn{
+    margin-top:40px;
+    padding:18px 40px;
+    border:none;
+    border-radius:50px;
+    font-size:1.3rem;
+    cursor:pointer;
+    background:linear-gradient(45deg,#ff004c,#ff8800);
+    color:white;
+    position:relative;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.battle-btn::after{
+    content:"";
+    position:absolute;
+    width:300%;
+    height:300%;
+    background:radial-gradient(circle,rgba(255,255,255,0.3) 10%,transparent 60%);
+    top:-100%;
+    left:-100%;
+    transition:0.5s;
+}
+
+.battle-btn:hover::after{
+    top:0;
+    left:0;
+}
+
+.battle-btn:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 40px orange;
+}
+
+/* 💀 Loser Burning Effect */
+.loser{
+    animation: burn 0.8s infinite alternate;
+}
+
+@keyframes burn{
+    from{box-shadow:0 0 20px red;}
+    to{box-shadow:0 0 60px orange;}
+}
+
+/* 🎬 Countdown */
+#countdown{
+    font-size:4rem;
+    margin-top:30px;
+    color:#ffcc00;
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
+}
+
+/* 🏆 Winner */
+#winner{
+    font-size:2rem;
+    margin-top:30px;
+    color:gold;
+    text-shadow:0 0 20px gold;
+    animation: winnerGlow 1.5s infinite alternate;
+}
+
+@keyframes winnerGlow{
+    from{text-shadow:0 0 10px gold;}
+    to{text-shadow:0 0 40px yellow;}
+}
+
+/* 💥 Screen Shake */
+@keyframes shake{
+    0%{transform:translate(0,0);}
+    25%{transform:translate(-5px,5px);}
+    50%{transform:translate(5px,-5px);}
+    75%{transform:translate(-5px,-5px);}
+    100%{transform:translate(0,0);}
+}
+
+.shake{
+    animation:shake 0.4s;
+}
+
+/* 📱 Responsive */
+@media(max-width:768px){
+    .battle-container{
+        flex-direction:column;
+    }
+    .glow{
+        font-size:2rem;
+    }
+}
+.flash{
+    animation: flashEffect 0.3s;
+}
+
+@keyframes flashEffect{
+    0%{background:white;}
+    100%{background:inherit;}
+}

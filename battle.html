@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>⚔️ Battle Mode</title>
+    <link rel="stylesheet" href="detect.css">
+</head>
+<body>
+
+<h1 class="glow">⚔️ Costume Battle ⚔️</h1>
+
+<div class="battle-container">
+
+    <div class="player" id="player1">
+        <h2>Player 1</h2>
+        <input type="file" id="img1" accept="image/*">
+        <img id="preview1">
+    </div>
+
+    <div class="player" id="player2">
+        <h2>Player 2</h2>
+        <input type="file" id="img2" accept="image/*">
+        <img id="preview2">
+    </div>
+
+</div>
+
+<button class="battle-btn pulse" onclick="startRoast()">
+    🔥 Brutal Judgment
+</button>
+
+<div id="countdown"></div>
+<div id="result"></div>
+
+<script src="detect.js"></script>
+
+</body>
+</html>
